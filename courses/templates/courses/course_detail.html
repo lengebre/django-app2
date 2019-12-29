@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %} {{ course.title}}{% endblock title %}
+
+{%block content%}
+<article>
+    <h2> {{course.title}}</h2>
+    {{course.description}}
+    <section>
+        {% for step in couse.step_set.all %}
+        <h3><a href="{% url 'step_detail' course+ ">{{step.title}}</a></h3>
+            {{step.description}}
+            {% endfor %}    
+    </section>
+</article>
+{%endblock content%}
